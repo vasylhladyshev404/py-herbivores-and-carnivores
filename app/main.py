@@ -1,10 +1,14 @@
 class Animal:
     alive = []
 
-    def __init__(self, name: str) -> None:
+    def __init__(
+        self, name: str,
+        health: int = 100,
+        hidden: bool = False
+    ) -> None:
         self.name = name
-        self.health = 100
-        self.hidden = False
+        self.health = health
+        self.hidden = hidden
         Animal.alive.append(self)
 
     def die(self) -> None:
@@ -13,11 +17,9 @@ class Animal:
 
     def __repr__(self) -> str:
         return (
-            f"{{\n"
-            f"  Name: {self.name},\n"
-            f"  Health: {self.health},\n"
-            f"  Hidden: {self.hidden}\n"
-            f"}}"
+            "{Name: " + self.name +
+            ", Health: " + str(self.health) +
+            ", Hidden: " + str(self.hidden) + "}"
         )
 
 
